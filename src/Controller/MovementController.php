@@ -8,6 +8,7 @@ use App\Handler\Movement\GetMovementDetailHandler;
 use App\Handler\Movement\GetMovementListHandler;
 use App\Handler\Movement\PostMovementHandler;
 use App\Mapper\ResponseMovementMapper;
+use Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -61,7 +62,7 @@ class MovementController
      * @param GetMovementListHandler $handler
      * @return JsonResponse
      */
-    public function getList(GetMovementListHandler $handler)
+    public function getList(GetMovementListHandler $handler): JsonResponse
     {
         $data = $handler->handle();
 
@@ -115,9 +116,9 @@ class MovementController
      * @param int $id
      * @param GetMovementDetailHandler $handler
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
-    public function getDetail(int $id, GetMovementDetailHandler $handler)
+    public function getDetail(int $id, GetMovementDetailHandler $handler): JsonResponse
     {
         $data = $handler->handle($id);
 
@@ -172,7 +173,7 @@ class MovementController
      * @param GetItemMovementsHandler $handler
      * @return JsonResponse
      */
-    public function getItemMovements(int $id, GetItemMovementsHandler $handler)
+    public function getItemMovements(int $id, GetItemMovementsHandler $handler): JsonResponse
     {
         $data = $handler->handle($id);
 
@@ -228,9 +229,9 @@ class MovementController
      * @param Request $request
      * @param PostMovementHandler $handler
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
-    public function postMovement(Request $request, PostMovementHandler $handler)
+    public function postMovement(Request $request, PostMovementHandler $handler): JsonResponse
     {
         $id = $handler->handle($request);
 
@@ -269,9 +270,9 @@ class MovementController
      * @param int $id
      * @param DeleteMovementHandler $handler
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
-    public function deleteMovement(int $id, DeleteMovementHandler $handler)
+    public function deleteMovement(int $id, DeleteMovementHandler $handler): JsonResponse
     {
         $handler->handle($id);
 

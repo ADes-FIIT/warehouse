@@ -6,9 +6,9 @@ use App\Tests\AcceptanceTester;
 
 class MovementStep extends AcceptanceTester
 {
-    const MOVEMENTS = '/movements';
-    const MOVEMENTS_SLASH = self::MOVEMENTS . '/';
-    const ITEM = self::MOVEMENTS_SLASH . 'item/';
+    public const MOVEMENTS = '/movements';
+    public const MOVEMENTS_SLASH = self::MOVEMENTS . '/';
+    public const ITEM = self::MOVEMENTS_SLASH . 'item/';
 
     /**
      * @param array $data

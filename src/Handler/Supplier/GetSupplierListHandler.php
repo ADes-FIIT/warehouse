@@ -27,8 +27,6 @@ class GetSupplierListHandler
      */
     public function handle(): ?array
     {
-        $suppliers = $this->repository->loadSuppliers();
-
-        return $suppliers;
+		return $this->repository->loadSuppliers();
     }
 }

@@ -4,8 +4,8 @@ namespace App\Enum;
 
 class MovementEnum
 {
-    const IN_INTEGER = 1;
-    const IN_STRING = "in";
-    const OUT_INTEGER = 2;
-    const OUT_STRING = "out";
+    public const IN_INTEGER = 1;
+	public const IN_STRING = "in";
+	public const OUT_INTEGER = 2;
+	public const OUT_STRING = "out";
 }

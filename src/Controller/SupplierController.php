@@ -7,6 +7,7 @@ use App\Handler\Supplier\GetSupplierDetailHandler;
 use App\Handler\Supplier\GetSupplierListHandler;
 use App\Handler\Supplier\PostSupplierHandler;
 use App\Mapper\ResponseSupplierMapper;
+use Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,7 +51,7 @@ class SupplierController
      * @param GetSupplierListHandler $handler
      * @return JsonResponse
      */
-    public function getList(GetSupplierListHandler $handler)
+    public function getList(GetSupplierListHandler $handler): JsonResponse
     {
         $data = $handler->handle();
 
@@ -93,9 +94,9 @@ class SupplierController
      * @param int $id
      * @param GetSupplierDetailHandler $handler
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
-    public function getDetail(int $id, GetSupplierDetailHandler $handler)
+    public function getDetail(int $id, GetSupplierDetailHandler $handler): JsonResponse
     {
         $data = $handler->handle($id);
 
@@ -151,9 +152,9 @@ class SupplierController
      * @param Request $request
      * @param PostSupplierHandler $handler
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
-    public function postMovement(Request $request, PostSupplierHandler $handler)
+    public function postMovement(Request $request, PostSupplierHandler $handler): JsonResponse
     {
         $id = $handler->handle($request);
 
@@ -199,9 +200,9 @@ class SupplierController
      * @param int $id
      * @param DeleteSupplierHandler $handler
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
-    public function deleteMovement(int $id, DeleteSupplierHandler $handler)
+    public function deleteMovement(int $id, DeleteSupplierHandler $handler): JsonResponse
     {
         $handler->handle($id);
 

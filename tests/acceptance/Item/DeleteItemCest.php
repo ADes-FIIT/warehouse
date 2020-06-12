@@ -14,7 +14,8 @@ class DeleteItemCest
      * @param ItemStep $S
      * @param ItemDataProvider $provider
      */
-    public function testDeleteItem(AcceptanceTester $I, ItemStep $S, ItemDataProvider $provider) {
+    public function testDeleteItem(AcceptanceTester $I, ItemStep $S, ItemDataProvider $provider): void
+	{
         $I->wantTo("Test Delete Item");
         $data['url'] = $I->getUrl("server");
 
@@ -38,7 +39,8 @@ class DeleteItemCest
      * @param ItemStep $S
      * @param ItemDataProvider $provider
      */
-    public function testDeleteItemError(AcceptanceTester $I, ItemStep $S, ItemDataProvider $provider) {
+    public function testDeleteItemError(AcceptanceTester $I, ItemStep $S, ItemDataProvider $provider): void
+	{
         $I->wantTo("Test Delete Item Error");
         $data['url'] = $I->getUrl("server");
 

@@ -12,7 +12,8 @@ class GetSupplierListCest
      * @param AcceptanceTester $I
      * @param SupplierStep $S
      */
-    public function testGetItemList(AcceptanceTester $I, SupplierStep $S) {
+    public function testGetItemList(AcceptanceTester $I, SupplierStep $S): void
+	{
         $I->wantTo("Test Get Supplier List");
         $data['url'] = $I->getUrl("server");
 

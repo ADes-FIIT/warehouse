@@ -10,8 +10,8 @@ class ResponseSupplierMapper
      * @param Supplier $supplier
      * @return array
      */
-    public function map(Supplier $supplier)
-    {
+    public function map(Supplier $supplier): array
+	{
         return [
             "id" => $supplier->getId(),
             "name" => $supplier->getName(),
@@ -24,8 +24,8 @@ class ResponseSupplierMapper
      * @param array $suppliers
      * @return array
      */
-    public function mapIterable(array $suppliers)
-    {
+    public function mapIterable(array $suppliers): array
+	{
         $result = [];
 
         foreach ($suppliers as $supplier) {

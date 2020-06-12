@@ -12,7 +12,7 @@ class GetMovementListCest
      * @param AcceptanceTester $I
      * @param MovementStep $S
      */
-    public function testGetMovementList(AcceptanceTester $I, MovementStep $S)
+    public function testGetMovementList(AcceptanceTester $I, MovementStep $S): void
     {
         $I->wantTo("Test Get Movement List");
         $data['url'] = $I->getUrl("server");

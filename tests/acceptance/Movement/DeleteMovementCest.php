@@ -27,7 +27,8 @@ class DeleteMovementCest
         SupplierStep $U,
         ItemDataProvider $itemDataProvider,
         SupplierDataProvider $supplierDataProvider
-    ) {
+    ): void
+	{
         $I->wantTo("Test Delete Movement");
         $data['url'] = $I->getUrl("server");
 
@@ -73,7 +74,8 @@ class DeleteMovementCest
      * @param AcceptanceTester $I
      * @param MovementStep $S
      */
-    public function testDeleteMovementError(AcceptanceTester $I, MovementStep $S) {
+    public function testDeleteMovementError(AcceptanceTester $I, MovementStep $S): void
+	{
         $I->wantTo("Test Delete Movement Error");
         $data['url'] = $I->getUrl("server");
 

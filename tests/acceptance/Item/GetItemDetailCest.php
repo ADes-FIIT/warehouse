@@ -12,7 +12,8 @@ class GetItemDetailCest
      * @param AcceptanceTester $I
      * @param ItemStep $S
      */
-    public function testGetItemDetail(AcceptanceTester $I, ItemStep $S) {
+    public function testGetItemDetail(AcceptanceTester $I, ItemStep $S): void
+	{
         $I->wantTo("Test Get Item Detail");
         $data['url'] = $I->getUrl("server");
 
@@ -36,7 +37,7 @@ class GetItemDetailCest
         $I->assertArrayHasKey('created', $item['data']);
     }
 
-    public function testGetItemDetailError(AcceptanceTester $I, ItemStep $S)
+    public function testGetItemDetailError(AcceptanceTester $I, ItemStep $S): void
     {
         $I->wantTo("Test Get Item Detail Error");
         $data['url'] = $I->getUrl("server");

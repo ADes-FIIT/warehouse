@@ -12,7 +12,8 @@ class GetSupplierDetailCest
      * @param AcceptanceTester $I
      * @param SupplierStep $S
      */
-    public function testGetSupplierDetail(AcceptanceTester $I, SupplierStep $S) {
+    public function testGetSupplierDetail(AcceptanceTester $I, SupplierStep $S): void
+	{
         $I->wantTo("Test Get Supplier Detail");
         $data['url'] = $I->getUrl("server");
 
@@ -39,7 +40,7 @@ class GetSupplierDetailCest
      * @param AcceptanceTester $I
      * @param SupplierStep $S
      */
-    public function testGetSupplierDetailError(AcceptanceTester $I, SupplierStep $S)
+    public function testGetSupplierDetailError(AcceptanceTester $I, SupplierStep $S): void
     {
         $I->wantTo("Test Get Supplier Detail Error");
         $data['url'] = $I->getUrl("server");

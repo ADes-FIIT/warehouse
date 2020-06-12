@@ -4,6 +4,7 @@ namespace App\Handler\Supplier;
 
 use App\Entity\Supplier;
 use App\Repository\SupplierRepository;
+use Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 class GetSupplierDetailHandler
@@ -25,13 +26,13 @@ class GetSupplierDetailHandler
     /**
      * @param int $id
      * @return Supplier
-     * @throws \Exception
+     * @throws Exception
      */
     public function handle(int $id): Supplier
     {
         $supplier = $this->repository->find($id);
-        if ($supplier == null) {
-            throw new \Exception("No such supplier exists.", Response::HTTP_BAD_REQUEST);
+        if ($supplier === null) {
+            throw new Exception("No such supplier exists.", Response::HTTP_BAD_REQUEST);
         }
 
         return $supplier;

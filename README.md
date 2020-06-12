@@ -1,6 +1,6 @@
 # Warehouse API
 
-Sample project for Intechon
+Sample project
 
 ## Setup
 1. Install composer dependencies ``composer install``
@@ -25,4 +25,4 @@ Sample project for Intechon
 - Codeception 2.5.5
 
 ### Author
-* **Adam Benovič** - [ADes-FIIT](https://github.com/ADes-FIIT)
+* **Adam Benovič**

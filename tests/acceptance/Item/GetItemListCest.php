@@ -12,7 +12,8 @@ class GetItemListCest
      * @param AcceptanceTester $I
      * @param ItemStep $S
      */
-    public function testGetItemList(AcceptanceTester $I,ItemStep $S) {
+    public function testGetItemList(AcceptanceTester $I,ItemStep $S): void
+	{
         $I->wantTo("Test Get Item List");
         $data['url'] = $I->getUrl("server");
         $items = $S->getItemList($data);

@@ -10,8 +10,8 @@ class ResponseItemMapper
      * @param Item $item
      * @return array
      */
-    public function map(Item $item)
-    {
+    public function map(Item $item): array
+	{
         return [
             "id" => $item->getId(),
             "name" => $item->getName(),
@@ -25,8 +25,8 @@ class ResponseItemMapper
      * @param array $items
      * @return array
      */
-    public function mapIterable(array $items)
-    {
+    public function mapIterable(array $items): array
+	{
         $result = [];
 
         foreach ($items as $item) {

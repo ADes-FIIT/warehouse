@@ -12,7 +12,7 @@ class ApiExceptionSubscriber implements EventSubscriberInterface
     /**
      * @return array
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::EXCEPTION => 'onKernelException',
@@ -22,7 +22,7 @@ class ApiExceptionSubscriber implements EventSubscriberInterface
     /**
      * @param GetResponseForExceptionEvent $event
      */
-    public function onKernelException(GetResponseForExceptionEvent $event)
+    public function onKernelException(GetResponseForExceptionEvent $event): void
     {
         $ex = $event->getException();
 

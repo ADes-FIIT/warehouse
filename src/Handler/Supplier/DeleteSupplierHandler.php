@@ -3,6 +3,7 @@
 namespace App\Handler\Supplier;
 
 use App\Repository\SupplierRepository;
+use Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 class DeleteSupplierHandler
@@ -19,13 +20,13 @@ class DeleteSupplierHandler
 
     /**
      * @param int $id
-     * @throws \Exception
+     * @throws Exception
      */
     public function handle(int $id): void
     {
         $supplier = $this->repository->find($id);
-        if ($supplier == null) {
-            throw new \Exception("No such Supplier exists.", Response::HTTP_BAD_REQUEST);
+        if ($supplier === null) {
+            throw new Exception("No such Supplier exists.", Response::HTTP_BAD_REQUEST);
         }
         $this->repository->remove($supplier);
     }

@@ -113,7 +113,7 @@ class Movement
     /**
      * @ORM\PrePersist()
      */
-    public function prePersist()
+    public function prePersist(): void
     {
         $this->dateWhen = new \DateTime("now");
     }

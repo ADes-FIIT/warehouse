@@ -7,6 +7,7 @@ use App\Handler\Item\GetItemDetailHandler;
 use App\Handler\Item\GetItemListHandler;
 use App\Handler\Item\PostItemHandler;
 use App\Mapper\ResponseItemMapper;
+use Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -52,7 +53,7 @@ class ItemController
      * @param GetItemListHandler $handler
      * @return JsonResponse
      */
-    public function getList(GetItemListHandler $handler)
+    public function getList(GetItemListHandler $handler): JsonResponse
     {
         $data = $handler->handle();
 
@@ -107,9 +108,9 @@ class ItemController
      * @param int $id
      * @param GetItemDetailHandler $handler
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
-    public function getDetail(int $id, GetItemDetailHandler $handler)
+    public function getDetail(int $id, GetItemDetailHandler $handler): JsonResponse
     {
         $data = $handler->handle($id);
 
@@ -166,9 +167,9 @@ class ItemController
      * @param Request $request
      * @param PostItemHandler $handler
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
-    public function postMovement(Request $request, PostItemHandler $handler)
+    public function postMovement(Request $request, PostItemHandler $handler): JsonResponse
     {
         $id = $handler->handle($request);
 
@@ -207,9 +208,9 @@ class ItemController
      * @param int $id
      * @param DeleteItemHandler $handler
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
-    public function deleteItem(int $id, DeleteItemHandler $handler)
+    public function deleteItem(int $id, DeleteItemHandler $handler): JsonResponse
     {
         $handler->handle($id);
 

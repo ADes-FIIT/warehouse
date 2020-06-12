@@ -4,6 +4,7 @@ namespace App\Handler\Supplier;
 
 use App\Factory\SupplierFactory;
 use App\Repository\SupplierRepository;
+use Exception;
 use Symfony\Component\HttpFoundation\Request;
 
 class PostSupplierHandler
@@ -34,7 +35,7 @@ class PostSupplierHandler
     /**
      * @param Request $request
      * @return int|null
-     * @throws \Exception
+     * @throws Exception
      */
     public function handle(Request $request): ?int
     {

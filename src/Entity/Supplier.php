@@ -89,7 +89,7 @@ class Supplier
     /**
      * @ORM\PrePersist
      */
-    public function prePersist()
+    public function prePersist(): void
     {
         $this->dateRegistration = new \DateTime("now");
     }

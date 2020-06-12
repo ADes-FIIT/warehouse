@@ -27,8 +27,6 @@ class GetMovementListHandler
      */
     public function handle(): ?array
     {
-        $movements = $this->repository->loadMovements();
-
-        return $movements;
+		return $this->repository->loadMovements();
     }
 }

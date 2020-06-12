@@ -7,6 +7,7 @@ use App\Factory\MovementFactory;
 use App\Repository\ItemRepository;
 use App\Repository\MovementRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -54,7 +55,7 @@ class PostMovementHandler
     /**
      * @param Request $request
      * @return int|null
-     * @throws \Exception
+     * @throws Exception
      */
     public function handle(Request $request): ?int
     {
@@ -63,11 +64,11 @@ class PostMovementHandler
 
         $movement = $this->movementFactory->createFromRequest($data);
         $item = $this->itemRepository->find($data['item_id']);
-        if ($movement->getDirection() == MovementEnum::IN_INTEGER) {
+        if ($movement->getDirection() === MovementEnum::IN_INTEGER) {
             $item->addOneQuantity();
         } else {
             if ($item->subOneQuantity() < 0) {
-                throw new \Exception("Item can not be moved out, quantity available is 0!", Response::HTTP_CONFLICT);
+                throw new Exception("Item can not be moved out, quantity available is 0!", Response::HTTP_CONFLICT);
             }
         }
 
@@ -76,9 +77,9 @@ class PostMovementHandler
             $this->itemRepository->save($item, true);
             $this->movementRepository->save($movement, true);
             $this->entityManager->commit();
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             $this->entityManager->rollback();
-            throw new \Exception("Movement could not be saved.", Response::HTTP_INTERNAL_SERVER_ERROR);
+            throw new Exception("Movement could not be saved.", Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
         return $movement->getId();

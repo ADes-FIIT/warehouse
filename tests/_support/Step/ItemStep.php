@@ -6,8 +6,8 @@ use App\Tests\AcceptanceTester;
 
 class ItemStep extends AcceptanceTester
 {
-    const ITEMS = '/items';
-    const ITEMS_SLASH = self::ITEMS . '/';
+    public const ITEMS = '/items';
+    public const ITEMS_SLASH = self::ITEMS . '/';
 
     /**
      * @param array $data

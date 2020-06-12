@@ -9,9 +9,9 @@ class ItemDataProvider
     public function getPostData()
     {
         return [
-            "name" => "testItem" . (new DateTime('now'))->format('YmdHis'),
-            "price" => floatval(rand(0, 100000)),
-            "quantity" => rand(0, 500)
+			"name" => "testItem" . (new DateTime('now'))->format('YmdHis'),
+			"price" => (float)random_int(0, 100000),
+			"quantity" => random_int(0, 500)
         ];
     }
 }

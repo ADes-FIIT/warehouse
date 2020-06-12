@@ -18,7 +18,8 @@ class DeleteSupplierCest
         AcceptanceTester $I,
         SupplierStep $S,
         SupplierDataProvider $provider
-    ) {
+    ): void
+	{
         $I->wantTo("Test Post Supplier");
         $data['url'] = $I->getUrl("server");
 
@@ -41,7 +42,8 @@ class DeleteSupplierCest
      * @param AcceptanceTester $I
      * @param SupplierStep $S
      */
-    public function testDeleteMovementError(AcceptanceTester $I, SupplierStep $S) {
+    public function testDeleteMovementError(AcceptanceTester $I, SupplierStep $S): void
+	{
         $I->wantTo("Test Delete Supplier Error");
         $data['url'] = $I->getUrl("server");
 

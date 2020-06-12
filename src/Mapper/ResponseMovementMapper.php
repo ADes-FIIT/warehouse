@@ -3,6 +3,7 @@
 namespace App\Mapper;
 
 use App\Entity\Movement;
+use App\Enum\MovementEnum;
 
 class ResponseMovementMapper
 {
@@ -10,14 +11,14 @@ class ResponseMovementMapper
      * @param Movement $movement
      * @return array
      */
-    public function map(Movement $movement)
-    {
+    public function map(Movement $movement): array
+	{
         $item = $movement->getItem();
         $supplier = $movement->getSupplier();
 
         return [
           "id" => $movement->getId(),
-          "direction" => $movement->getDirection() == 1 ? "in" : "out",
+          "direction" => $movement->getDirection() === 1 ? MovementEnum::IN_STRING : MovementEnum::OUT_STRING,
           "item" => [
               "id" => $item->getId(),
               "name" => $item->getName(),
@@ -36,8 +37,8 @@ class ResponseMovementMapper
      * @param array $movements
      * @return array
      */
-    public function mapIterable(array $movements)
-    {
+    public function mapIterable(array $movements): array
+	{
         $result = [];
 
         foreach ($movements as $movement) {

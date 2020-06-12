@@ -30,7 +30,7 @@ class GetMovementDetailHandler
     public function handle(int $id): Movement
     {
         $movement = $this->repository->find($id);
-        if ($movement == null) {
+        if ($movement === null) {
             throw new \Exception("No such movement exists.", Response::HTTP_BAD_REQUEST);
         }
 

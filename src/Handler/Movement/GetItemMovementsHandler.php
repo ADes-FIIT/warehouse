@@ -28,8 +28,6 @@ class GetItemMovementsHandler
      */
     public function handle(int $id): ?array
     {
-        $movements = $this->repository->loadByItemId($id);
-
-        return $movements;
+		return $this->repository->loadByItemId($id);
     }
 }

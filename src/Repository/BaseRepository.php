@@ -3,14 +3,16 @@
 namespace App\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 
 abstract class BaseRepository extends ServiceEntityRepository
 {
     /**
      * @param object $entity
      * @param bool $flush
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function save($entity, bool $flush)
     {
@@ -23,8 +25,8 @@ abstract class BaseRepository extends ServiceEntityRepository
 
     /**
      * @param object $entity
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function remove($entity): void
     {

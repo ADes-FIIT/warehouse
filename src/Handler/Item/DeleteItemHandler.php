@@ -3,6 +3,7 @@
 namespace App\Handler\Item;
 
 use App\Repository\ItemRepository;
+use Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 class DeleteItemHandler
@@ -19,13 +20,13 @@ class DeleteItemHandler
 
     /**
      * @param int $id
-     * @throws \Exception
+     * @throws Exception
      */
     public function handle(int $id): void
     {
         $item = $this->repository->find($id);
-        if ($item == null) {
-            throw new \Exception("No such item exists.", Response::HTTP_BAD_REQUEST);
+        if ($item === null) {
+            throw new Exception("No such item exists.", Response::HTTP_BAD_REQUEST);
         }
         $this->repository->remove($item);
     }

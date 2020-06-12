@@ -4,6 +4,7 @@ namespace App\Handler\Item;
 
 use App\Factory\ItemFactory;
 use App\Repository\ItemRepository;
+use Exception;
 use Symfony\Component\HttpFoundation\Request;
 
 class PostItemHandler
@@ -34,7 +35,7 @@ class PostItemHandler
     /**
      * @param Request $request
      * @return int|null
-     * @throws \Exception
+     * @throws Exception
      */
     public function handle(Request $request): ?int
     {

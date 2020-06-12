@@ -12,7 +12,8 @@ class GetMovementDetailCest
      * @param AcceptanceTester $I
      * @param MovementStep $S
      */
-    public function testGetMovementDetail(AcceptanceTester $I, MovementStep $S) {
+    public function testGetMovementDetail(AcceptanceTester $I, MovementStep $S): void
+	{
         $I->wantTo("Test Get Movement Detail");
         $data['url'] = $I->getUrl("server");
 
@@ -40,7 +41,7 @@ class GetMovementDetailCest
         $I->assertArrayHasKey('supply_date', $item['data']['supplier']);
     }
 
-    public function testGetMovementDetailError(AcceptanceTester $I, MovementStep $S)
+    public function testGetMovementDetailError(AcceptanceTester $I, MovementStep $S): void
     {
         $I->wantTo("Test Get Movement Detail Error");
         $data['url'] = $I->getUrl("server");

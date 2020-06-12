@@ -4,6 +4,7 @@ namespace App\Handler\Item;
 
 use App\Entity\Item;
 use App\Repository\ItemRepository;
+use Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 class GetItemDetailHandler
@@ -25,13 +26,13 @@ class GetItemDetailHandler
     /**
      * @param int $id
      * @return Item
-     * @throws \Exception
+     * @throws Exception
      */
     public function handle(int $id): Item
     {
         $item = $this->repository->find($id);
-        if ($item == null) {
-            throw new \Exception("No such item exists.", Response::HTTP_BAD_REQUEST);
+        if ($item === null) {
+            throw new Exception("No such item exists.", Response::HTTP_BAD_REQUEST);
         }
 
         return $item;

@@ -14,7 +14,8 @@ class PostItemCest
      * @param ItemStep $S
      * @param ItemDataProvider $provider
      */
-    public function testPostItem(AcceptanceTester $I, ItemStep $S, ItemDataProvider $provider) {
+    public function testPostItem(AcceptanceTester $I, ItemStep $S, ItemDataProvider $provider): void
+	{
         $I->wantTo("Test Post Item");
         $data['url'] = $I->getUrl("server");
 
@@ -38,7 +39,8 @@ class PostItemCest
      * @param AcceptanceTester $I
      * @param ItemStep $S
      */
-    public function testPostItemError(AcceptanceTester $I, ItemStep $S) {
+    public function testPostItemError(AcceptanceTester $I, ItemStep $S): void
+	{
         $I->wantTo("Test Post Item Error");
         $data['url'] = $I->getUrl("server");
 

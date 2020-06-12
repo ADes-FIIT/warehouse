@@ -27,7 +27,8 @@ class PostMovementCest
         SupplierStep $U,
         ItemDataProvider $itemDataProvider,
         SupplierDataProvider $supplierDataProvider
-    ) {
+    ): void
+	{
         $I->wantTo("Test Post Movement");
         $data['url'] = $I->getUrl("server");
 
@@ -84,7 +85,8 @@ class PostMovementCest
      * @param AcceptanceTester $I
      * @param MovementStep $S
      */
-    public function testPostItemError(AcceptanceTester $I, MovementStep $S) {
+    public function testPostItemError(AcceptanceTester $I, MovementStep $S): void
+	{
         $I->wantTo("Test Post Movement Error");
         $data['url'] = $I->getUrl("server");
 

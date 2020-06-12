@@ -132,7 +132,7 @@ class Item
     /**
      * @ORM\PrePersist()
      */
-    public function prePersist()
+    public function prePersist(): void
     {
         $this->dateAdded = new \DateTime("now");
     }

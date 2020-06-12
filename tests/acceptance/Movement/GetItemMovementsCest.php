@@ -14,7 +14,7 @@ class GetItemMovementsCest
      * @param MovementStep $S
      * @param ItemStep $T
      */
-    public function testGetItemMovementList(AcceptanceTester $I, MovementStep $S, ItemStep $T)
+    public function testGetItemMovementList(AcceptanceTester $I, MovementStep $S, ItemStep $T): void
     {
         $I->wantTo("Test Get Item's Movement List");
         $data['url'] = $I->getUrl("server");

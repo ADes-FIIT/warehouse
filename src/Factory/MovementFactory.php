@@ -5,8 +5,8 @@ namespace App\Factory;
 use App\Entity\Movement;
 use App\Enum\MovementEnum;
 use App\Repository\ItemRepository;
-use App\Repository\MovementRepository;
 use App\Repository\SupplierRepository;
+use Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 class MovementFactory
@@ -22,30 +22,22 @@ class MovementFactory
     private $supplierRepository;
 
     /**
-     * @var MovementRepository
-     */
-    private $movementRepository;
-
-    /**
      * MovementFactory constructor.
      * @param ItemRepository $itemRepository
      * @param SupplierRepository $supplierRepository
-     * @param MovementRepository $movementRepository
      */
     public function __construct(
         ItemRepository $itemRepository,
-        SupplierRepository $supplierRepository,
-        MovementRepository $movementRepository
+        SupplierRepository $supplierRepository
     ) {
         $this->itemRepository = $itemRepository;
         $this->supplierRepository = $supplierRepository;
-        $this->movementRepository = $movementRepository;
     }
 
     /**
      * @param array $data
      * @return Movement
-     * @throws \Exception
+     * @throws Exception
      */
     public function createFromRequest(array $data): Movement
     {
@@ -55,23 +47,23 @@ class MovementFactory
 
             $supplier = $this->supplierRepository->find($data['supplier_id']);
 
-            if ($data["direction"] == MovementEnum::IN_STRING) {
+            if ($data["direction"] === MovementEnum::IN_STRING) {
                 $direction = MovementEnum::IN_INTEGER;
-            } elseif ($data["direction"] == MovementEnum::OUT_STRING) {
+            } elseif ($data["direction"] === MovementEnum::OUT_STRING) {
                 $direction = MovementEnum::OUT_INTEGER;
             } else {
-                throw new \Exception();
+                throw new Exception();
             }
-        } catch (\Exception $e) {
-            throw new \Exception("Wrong request data!", Response::HTTP_BAD_REQUEST);
+        } catch (Exception $e) {
+            throw new Exception("Wrong request data!", Response::HTTP_BAD_REQUEST);
         }
 
-        if ($item == null) {
-            throw new \Exception("No such item exists!", Response::HTTP_BAD_REQUEST);
+        if ($item === null) {
+            throw new Exception("No such item exists!", Response::HTTP_BAD_REQUEST);
         }
 
-        if ($supplier == null) {
-            throw new \Exception("No such supplier exists!", Response::HTTP_BAD_REQUEST);
+        if ($supplier === null) {
+            throw new Exception("No such supplier exists!", Response::HTTP_BAD_REQUEST);
         }
 
         $movement->setDirection($direction);

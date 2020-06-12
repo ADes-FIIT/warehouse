@@ -18,7 +18,8 @@ class PostSupplierCest
         AcceptanceTester $I,
         SupplierStep $S,
         SupplierDataProvider $provider
-    ) {
+    ): void
+	{
         $I->wantTo("Test Post Supplier");
         $data['url'] = $I->getUrl("server");
 
@@ -42,7 +43,8 @@ class PostSupplierCest
      * @param AcceptanceTester $I
      * @param SupplierStep $S
      */
-    public function testPostSupplierError(AcceptanceTester $I, SupplierStep $S) {
+    public function testPostSupplierError(AcceptanceTester $I, SupplierStep $S): void
+	{
         $I->wantTo("Test Post Supplier Error");
         $data['url'] = $I->getUrl("server");
 

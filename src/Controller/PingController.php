@@ -17,7 +17,7 @@ class PingController
      *
      * @return JsonResponse
      */
-    public function ping()
+    public function ping(): JsonResponse
     {
         return new JsonResponse(
             ['time' => microtime(true)]

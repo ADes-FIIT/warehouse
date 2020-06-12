@@ -6,8 +6,8 @@ use App\Tests\AcceptanceTester;
 
 class SupplierStep extends AcceptanceTester
 {
-    const SUPPLIERS = '/suppliers';
-    const SUPPLIERS_SLASH = self::SUPPLIERS . '/';
+    public const SUPPLIERS = '/suppliers';
+    public const SUPPLIERS_SLASH = self::SUPPLIERS . '/';
 
     /**
      * @param array $data

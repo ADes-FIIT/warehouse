@@ -27,8 +27,6 @@ class GetItemListHandler
      */
     public function handle(): ?array
     {
-        $movements = $this->repository->loadItems();
-
-        return $movements;
+		return $this->repository->loadItems();
     }
 }
